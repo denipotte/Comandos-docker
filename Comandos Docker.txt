@@ -1,0 +1,23 @@
+Criar container:
+
+docker container run -d -e MYSQL_ROOT_PASSWORD=volumedocker --name mysql mysql:8
+
+Inspecionar o Volume:
+
+docker volume inspect xxxxxxxxxx
+
+Inspecionar container:
+docker container inspect xxx
+
+
+Criar vários containers de uma vez:
+for i in {1..5}; do docker run -d -e MYSQL_ROOT_PASSWORD=volumedocker --name mysql$i mysql:8; done
+
+Remover todos os containers de uma vez:
+docker container rm -f $(docker container ls -aq)
+
+Listar volumes no docker:
+docker volume ls
+
+Remover os containers que não estão sendo utilizados por pelo menos 1 container:
+docker volume prune
